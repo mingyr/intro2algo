@@ -1,2 +1,3 @@
 # intro2algo
-Souce files for various kind of algorithms
+
+This repo contains souce files for various kind of algorithms, which is accompanying the classes I tought in Beijing Institute of Education
