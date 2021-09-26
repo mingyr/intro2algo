@@ -19,7 +19,12 @@ void insertion_sort(vector<int>& v)
 	}
 }
 
-void insertion_sort_test(vector<int>& v, void(*print)(int))
+static void print(int n)
+{
+	std::cout << " " << n;
+}
+
+void insertion_sort_test(vector<int>& v)
 {
     cout << "before sorting:";
     for_each(v.cbegin(), v.cend(), print);
