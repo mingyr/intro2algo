@@ -139,8 +139,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="genetic_algo.cpp" />
     <ClCompile Include="insertion_sort.cpp" />
     <ClCompile Include="intro2algo.cpp" />
+    <ClCompile Include="merge_sort.cpp" />
     <ClCompile Include="num_sys_conv.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

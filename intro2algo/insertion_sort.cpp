@@ -19,20 +19,17 @@ void insertion_sort(vector<int>& v)
 	}
 }
 
-static void print(int n)
+void insertion_sort_test()
 {
-	std::cout << " " << n;
-}
+	vector<int> v{ 12, 4, 7, 6, 15, 2, 17, 9 };
 
-void insertion_sort_test(vector<int>& v)
-{
-    cout << "before sorting:";
-    for_each(v.cbegin(), v.cend(), print);
-    cout << '\n';
+	cout << "before sorting:";
+	for_each(v.cbegin(), v.cend(), [](auto n) { cout << n << " ";  });
+	cout << '\n';
 
 	insertion_sort(v);
 
-    cout << "after sorting: ";
-    for_each(v.cbegin(), v.cend(), print);
-    std::cout << '\n';
+	cout << "after sorting: ";
+	for_each(v.cbegin(), v.cend(), [](auto n) { cout << n << " ";  });
+	std::cout << '\n';
 }

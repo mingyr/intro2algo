@@ -5,17 +5,15 @@
 #include <vector>
 using namespace std;
 
-extern void insertion_sort_test(vector<int>&);
-extern void dec2bin_test(int n);
+extern void insertion_sort_test();
+extern void dec2bin_test();
+extern void merge_sort_test();
 
 int main()
 {
-    // vector<int> v{ 12, 4, 7, 6, 15, 2, 17, 9 };
-    // insertion_sort_test(v);
-
-    int n = 100;
-    dec2bin_test(n);
-
+    // insertion_sort_test();
+    // dec2bin_test();
+    merge_sort_test();
 }
 
 // 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单

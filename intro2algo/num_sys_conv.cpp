@@ -18,8 +18,10 @@ vector<int> dec2bin(int n)
 	return bin;
 }
 
-void dec2bin_test(int n)
+void dec2bin_test()
 {
+	int n = 100;
+
 	vector<int>&& bin = dec2bin(n);
 	reverse(bin.begin(), bin.end());
 	cout << "The number represented in decimal is " << n << endl;
