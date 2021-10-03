@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="gcd.cpp" />
     <ClCompile Include="genetic_algo.cpp" />
     <ClCompile Include="insertion_sort.cpp" />
     <ClCompile Include="intro2algo.cpp" />

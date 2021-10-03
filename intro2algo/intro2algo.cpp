@@ -1,19 +1,22 @@
 ﻿// intro2algo.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
 //
-
+#include <tchar.h>
 #include <iostream>
 #include <vector>
+
 using namespace std;
 
 extern void insertion_sort_test();
 extern void dec2bin_test();
 extern void merge_sort_test();
+extern void gcd_test(int, TCHAR* []);
 
-int main()
+int _tmain(int argc, _TCHAR* argv[])
 {
     // insertion_sort_test();
     // dec2bin_test();
-    merge_sort_test();
+    // merge_sort_test();
+    gcd_test(argc, argv);
 }
 
 // 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单
