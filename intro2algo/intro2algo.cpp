@@ -10,13 +10,16 @@ extern void insertion_sort_test();
 extern void dec2bin_test();
 extern void merge_sort_test();
 extern void gcd_test(int, TCHAR* []);
+extern void genetic_algorithm_test();
+
 
 int _tmain(int argc, _TCHAR* argv[])
 {
     // insertion_sort_test();
     // dec2bin_test();
     // merge_sort_test();
-    gcd_test(argc, argv);
+    // gcd_test(argc, argv);
+    genetic_algorithm_test();
 }
 
 // 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单

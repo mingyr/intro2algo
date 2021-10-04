@@ -6,6 +6,7 @@
 #include <random>
 #include <cmath>
 #include <functional>
+#include <numeric>
 
 #define _USE_MATH_DEFINES
 #include <math.h>
@@ -29,6 +30,8 @@ struct objective
 
 vector<double> fitness(vector<bitset<N>>& population, objective& obj )
 {
+	// cout << "In function: " << __func__ << endl;
+
 	vector<double> scores;
 	scores.resize(population.size());
 	transform(population.begin(), population.end(), scores.begin(), [obj](bitset<N>& bs) {
@@ -40,6 +43,8 @@ vector<double> fitness(vector<bitset<N>>& population, objective& obj )
 
 vector<int> selection(vector<double>& scores)
 {
+	// cout << "In function: " << __func__ << endl;
+
 	double min = *min_element(scores.begin(), scores.end());
 
 	for_each(scores.begin(), scores.end(), [min](auto& n) { n -= min; });
@@ -51,36 +56,54 @@ vector<int> selection(vector<double>& scores)
 	transform(scores.begin(), scores.end(), boundary.begin(), [&accu](auto& v) { return accu += v;  });
 
 	static mt19937 mt(rd());
-	static uniform_real_distribution<double> dist(0.0, nextafter(accu, DBL_MAX));
+	uniform_real_distribution<double> dist(0.0, accu);
 
 	vector<int> idx;
+
+	/*
+	cout << "scores: " << endl;
+	for_each(scores.cbegin(), scores.cend(), [](auto n) { cout << n << " ";  });
+	cout << endl;
+
+	cout << "boundary: " << endl;
+	for_each(boundary.cbegin(), boundary.cend(), [](auto n) { cout << n << " ";  });
+	cout << endl;
+	*/
 
 	for (auto i = scores.size(); i > 0; i--)
 	{
 		double p = dist(mt);
+		// cout << "p = " << p << endl;
+
 		for (auto it = boundary.begin(); it != boundary.end(); it++)
 		{
 			if (p <= *it)
 			{
 				idx.push_back(static_cast<int>(distance(boundary.begin(), it)));
-				continue;
+				break;
 			}
 		}
 	}
+
+	// cout << "idx size: " << idx.size() << endl;
 
 	return idx;
 }
 
 bool crossover(vector<bitset<N>>& population, int crossover_pairs)
 {
+	// cout << "In function: " << __func__ << endl;
+
 	static mt19937 mt(rd());
-	static uniform_int_distribution<int> ind_dist(0, static_cast<int>(population.size()));
-	static uniform_int_distribution<int> pos_dist(0, static_cast<int>(population.size()));
+	static uniform_int_distribution<int> ind_dist(0, static_cast<int>(population.size()) - 1);
+	static uniform_int_distribution<int> pos_dist(0, N - 1);
 
 	for (int i = 0; i < crossover_pairs; i++)
 	{
 		int i1 = ind_dist(mt);
 		int i2 = ind_dist(mt);
+
+		// cout << "i1 = " << i1 << "; i2 = " << i2 << endl;
 
 		bitset<N>& bs1 = population[i1];
 		bitset<N>& bs2 = population[i2];
@@ -98,10 +121,12 @@ bool crossover(vector<bitset<N>>& population, int crossover_pairs)
 
 bool mutation(vector<bitset<N>>& population, int mutation_indivs)
 {
+	// cout << "In function: " << __func__ << endl;
+
 	static mt19937 mt(rd());
 
-	static uniform_int_distribution<int> ind_dist(0, static_cast<int>(population.size()));
-	static uniform_int_distribution<int> pos_dist(0, static_cast<int>(population.size()));
+	static uniform_int_distribution<int> ind_dist(0, static_cast<int>(population.size()) - 1);
+	static uniform_int_distribution<int> pos_dist(0, N - 1);
 
 	for (int i = 0; i < mutation_indivs; i++)
 		population[ind_dist(mt)].flip(pos_dist(mt));
@@ -160,6 +185,8 @@ bitset<N> genetic_algorithm(ga_config& gac, objective& obj)
 
 		population = move(new_population);
 
+		// cout << "population size" << population.size() << endl;
+
 		// crossover
 		crossover(population, int(gac.population_size * gac.crossover_ratio));
 
@@ -180,7 +207,7 @@ bitset<N> genetic_algorithm(ga_config& gac, objective& obj)
 		
 		gac.generations--;
 
-	} while (gac.generations > 0 || abs_error < gac.tolerance);
+	} while (gac.generations > 0 && abs_error > gac.tolerance);
 
 	return population[distance(scores.begin(), max_element(scores.begin(), scores.end()))];
 }
@@ -195,13 +222,16 @@ void genetic_algorithm_test()
 		return x * sin(10 * M_PI * x) + 2; } };
 
 	ga_config gac;
-	gac.population_size = 10;
-	gac.generations = 10;
-	gac.tolerance = 0.01;
-	gac.crossover_ratio = 0.6;
-	gac.mutation_ratio = 0.1;
+	gac.population_size = 100;
+	gac.generations = 1000;
+	gac.tolerance = 0.0001;
+	gac.crossover_ratio = 0.8;
+	gac.mutation_ratio = 0.04;
 
 	bitset<N> optimal = genetic_algorithm(gac, obj);
+
+	cout << "The optimal sulotion to the problem is " << geno2pheno(optimal.to_ulong(), lower, upper) << endl;
+	cout << "The value of the objective function is " << obj.dec_(optimal.to_ulong()) << endl;
 }
 
 
