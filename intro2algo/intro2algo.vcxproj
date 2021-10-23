@@ -140,6 +140,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="dp_cut.cpp" />
     <ClCompile Include="dp_pay.cpp" />
     <ClCompile Include="gcd.cpp" />
     <ClCompile Include="genetic_algo.cpp" />

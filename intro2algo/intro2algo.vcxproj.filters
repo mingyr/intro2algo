@@ -36,5 +36,8 @@
     <ClCompile Include="dp_pay.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="dp_cut.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

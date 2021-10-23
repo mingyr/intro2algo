@@ -12,6 +12,7 @@ extern void merge_sort_test();
 extern void gcd_test(int, TCHAR* []);
 extern void genetic_algorithm_test();
 extern void pay_test();
+extern void cut_test();
 
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -20,7 +21,8 @@ int _tmain(int argc, _TCHAR* argv[])
     // merge_sort_test();
     // gcd_test(argc, argv);
     // genetic_algorithm_test();
-    pay_test();
+    // pay_test();
+    cut_test();
 }
 
 // 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单
