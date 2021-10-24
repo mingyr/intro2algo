@@ -25,6 +25,33 @@ int cut(int n, map<int, int>& profits, map<int, int>& res)
 	return r;
 }
 
+int cut(int n, map<int, int>& profits, vector<int>& r, vector<int>& s)
+{
+	r.resize(n + 1);
+	s.resize(n + 1);
+	
+	r[0] = 0;
+	s[0] = 0;
+
+	for (int i = 1; i <= n; i++)
+	{
+		auto q = numeric_limits<int>::min();
+		for (int j = 1; j <= i; j++)
+		{
+			if (q < profits[j] + r[i - j])
+			{
+				q = profits[j] + r[i - j];
+				s[i] = j;
+
+			}
+		}
+		r[i] = q;
+	}
+
+	return *r.rbegin();
+}
+
+
 void cut_test()
 {
 	int n = 4;
@@ -52,5 +79,25 @@ void cut_test()
 	{
 		cout << key << " : " << value << endl;
 	}
+
+	vector<int> rv, s;
+
+	r = cut(n, profits, rv, s);
+	cout << "profit: " << r << endl;
+
+	cout << "list of r:" << endl;
+	for (const auto value : rv)
+	{
+		cout << value << "\t";
+	}
+	cout << endl;
+
+	cout << "list of s:" << endl;
+	for (const auto value : s)
+	{
+		cout << value << "\t";
+	}
+	cout << endl;
+
 }
 
