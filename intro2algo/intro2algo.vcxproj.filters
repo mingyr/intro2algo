@@ -39,5 +39,25 @@
     <ClCompile Include="dp_cut.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="proto_client.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="common.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="proto_server.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="proto_client_file.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="proto_server_file.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="common.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
