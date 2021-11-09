@@ -153,6 +153,7 @@
     <ClCompile Include="proto_client_file.cpp" />
     <ClCompile Include="proto_server.cpp" />
     <ClCompile Include="proto_server_file.cpp" />
+    <ClCompile Include="sm_door.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="common.h" />

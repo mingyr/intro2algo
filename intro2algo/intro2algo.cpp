@@ -17,6 +17,8 @@ extern int proto_client(int, TCHAR* []);
 extern int proto_server();
 extern int proto_client_file(int, TCHAR* []);
 extern int proto_server_file();
+extern void sm_door_test();
+
 
 
 int _tmain(int argc, _TCHAR* argv[])
@@ -28,12 +30,16 @@ int _tmain(int argc, _TCHAR* argv[])
     // genetic_algorithm_test();
     // pay_test();
     // cut_test();
+    /*
     if (argc == 1)
         // proto_server();
         proto_server_file();
     else
         //proto_client(argc, argv);
         proto_client_file(argc, argv);
+        */
+
+    sm_door_test();
 }
 
 // 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单
