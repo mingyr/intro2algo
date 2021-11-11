@@ -59,7 +59,7 @@ public:
 	template <typename Event>
 	bool handle(const Event& event)
 	{
-		auto passEventToState = [this, &event](auto statePtr) {
+		auto passEventToState = [&event](auto statePtr) {
 			return statePtr->handle(event);
 		};
 		auto p = std::visit(passEventToState, currentStatePtr);
