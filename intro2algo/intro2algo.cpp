@@ -9,6 +9,7 @@ using namespace std;
 extern void insertion_sort_test();
 extern void dec2bin_test();
 extern void merge_sort_test();
+extern void cd_max_test();
 extern void gcd_test(int, TCHAR* []);
 extern void genetic_algorithm_test();
 extern void pay_test();
@@ -18,6 +19,7 @@ extern int proto_server();
 extern int proto_client_file(int, TCHAR* []);
 extern int proto_server_file();
 extern void sm_door_test();
+extern void substitution_cipher_test(int, TCHAR* []);
 
 
 
@@ -39,7 +41,11 @@ int _tmain(int argc, _TCHAR* argv[])
         proto_client_file(argc, argv);
         */
 
-    sm_door_test();
+    // sm_door_test();
+    // substitution_cipher_test(argc, argv);
+
+    cd_max_test();
+
 }
 
 // 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单
