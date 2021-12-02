@@ -34,10 +34,12 @@ int permutation_cipher(ifstream& in, ofstream& out, ofstream& out2)
 	in.seekg(0, in.beg);
 
 	char* buffer = new char[length];
+	char* tmp = new char[length];
 
 	std::cout << "Reading " << length << " characters... ";
 	// read data as a block:
 	in.read(buffer, length);
+	memcpy(tmp, buffer, length);
 
 	in.close();
 
@@ -47,10 +49,11 @@ int permutation_cipher(ifstream& in, ofstream& out, ofstream& out2)
 	{
 		for (int j = 0; j < perm_len; j++)
 		{
-			buffer[n * perm_len + j] = buffer[n * perm_len + perm[j]];
+			tmp[n * perm_len + j] = buffer[n * perm_len + perm[j]];
 		}
 	}
 
+	memcpy(buffer, tmp, length);
 	out.write(buffer, length);
 	out.close();
 
@@ -58,14 +61,16 @@ int permutation_cipher(ifstream& in, ofstream& out, ofstream& out2)
 	{
 		for (int j = 0; j < perm_len; j++)
 		{
-			buffer[n * perm_len + j] = buffer[n * perm_len + inv_perm[j]];
+			tmp[n * perm_len + j] = buffer[n * perm_len + inv_perm[j]];
 		}
 	}
 
+	memcpy(buffer, tmp, length);
 	out2.write(buffer, length);
 	out2.close();
 
 	delete[] buffer;
+	delete[] tmp;
 
 	return 0;
 

@@ -66,6 +66,9 @@
     <ClCompile Include="cd_max.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="spn_cipher.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="common.h">

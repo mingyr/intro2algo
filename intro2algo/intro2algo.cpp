@@ -20,7 +20,8 @@ extern int proto_client_file(int, TCHAR* []);
 extern int proto_server_file();
 extern void sm_door_test();
 extern void substitution_cipher_test(int, TCHAR* []);
-
+extern void permutation_cipher_test(int, TCHAR* []);
+extern void spn_cipher_test(int, TCHAR* []);
 
 
 int _tmain(int argc, _TCHAR* argv[])
@@ -43,8 +44,9 @@ int _tmain(int argc, _TCHAR* argv[])
 
     // sm_door_test();
     // substitution_cipher_test(argc, argv);
-
-    cd_max_test();
+    // cd_max_test();
+    // permutation_cipher_test(argc, argv);
+    spn_cipher_test(argc, argv);
 
 }
 
