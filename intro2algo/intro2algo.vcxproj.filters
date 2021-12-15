@@ -72,6 +72,9 @@
     <ClCompile Include="openssl_aes.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="openssl_sha.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="common.h">

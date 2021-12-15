@@ -147,7 +147,8 @@ void openssl_aes_test(int argc, TCHAR* argv[])
     /* The enc/dec functions deal with binary data and not C strings. strlen() will
         return length of the string without counting the '\0' string marker. We always
         pass in the marker byte to the encrypt/decrypt functions so that after decryption
-        we end up with a legal C string */
+        we end up with a legal C string
+        */
 
         // get length of file:
     ifs.seekg(0, ifs.end);

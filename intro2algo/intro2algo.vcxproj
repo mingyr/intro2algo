@@ -153,6 +153,7 @@
     <ClCompile Include="merge_sort.cpp" />
     <ClCompile Include="num_sys_conv.cpp" />
     <ClCompile Include="openssl_aes.cpp" />
+    <ClCompile Include="openssl_sha.cpp" />
     <ClCompile Include="permutation_cipher.cpp" />
     <ClCompile Include="proto_client.cpp" />
     <ClCompile Include="proto_client_file.cpp" />
